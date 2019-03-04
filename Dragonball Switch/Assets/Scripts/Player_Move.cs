@@ -52,4 +52,10 @@ public class Player_Move : MonoBehaviour
         playerAnimation.SetFloat("Speed", Mathf.Abs (rigidBody.velocity.x));
         playerAnimation.SetBool("OnGround", isTouchingGround);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)  {
+        if(other.tag == "FallDetector")  {
+            //What will happen when player enters FallDetector zone
+        }
+    }
 }

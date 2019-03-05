@@ -17,6 +17,7 @@ public class Player_Move : MonoBehaviour
 
     private Animator playerAnimation;
     public Vector3 respawnPoint; //Store position of where player is going to respawn to
+    public LevelManager gameLevelManager;
 
     private void Start()  {
         //Player assets
@@ -25,6 +26,8 @@ public class Player_Move : MonoBehaviour
 
         //When game loads, respawn point is set to position of player
         respawnPoint = transform.position;
+
+        gameLevelManager = FindObjectOfType<LevelManager>();
     }
 
     private void Update() {
@@ -60,7 +63,7 @@ public class Player_Move : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)  {
         if(other.tag == "FallDetector")  {
             //Player enters FallDetector zone (collider with a trigger)
-            transform.position = respawnPoint;
+            gameLevelManager.Respawn(); // calling respawn method from LevelManager script
         }
         if(other.tag == "Checkpoint") {
             //When player reaches checkpoint, respawn point will be set to position of checkpoint

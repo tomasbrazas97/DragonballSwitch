@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public Player_Move gamePlayer; //referring to player_move script and object it is attached to
     public int dragonBall;
+    public Text scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         gamePlayer = FindObjectOfType<Player_Move>();
+        scoreText.text = "Score: " + dragonBall;
     }
 
     // Update is called once per frame
@@ -24,7 +27,8 @@ public class LevelManager : MonoBehaviour
         gameObject.gameObject.SetActive(true); //re-enabling player object
     }
 
-    public void AddDragonBall(int numberOfDragonBalls) {
+    public void AddDragonBall(int numberOfDragonBalls) { //adds coin to the game depending on coin value
         dragonBall += numberOfDragonBalls;
+        scoreText.text = "Score: " + dragonBall;
     }
 }

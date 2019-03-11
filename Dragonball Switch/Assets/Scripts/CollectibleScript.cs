@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CollectibleScript : MonoBehaviour
 {
-    public int dragonBallScore = 0;
+    private LevelManager gameLevelManager;
+    public int dragonBallValue = 1;
+
     // Start is called before the first frame update
     void Start()  {
-        
+        gameLevelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -15,8 +17,10 @@ public class CollectibleScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) { 
-        Destroy(gameObject);
-        dragonBallScore += 1;
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player") { //only objects with Player tag can destroy object
+            gameLevelManager.AddDragonBall(dragonBallValue); //call addDragonBall from LevelManager and pass int value to it
+            Destroy(gameObject);
+        }
     }
 }

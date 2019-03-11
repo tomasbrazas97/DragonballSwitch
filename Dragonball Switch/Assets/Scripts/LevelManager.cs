@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public float respawnDelay; // amount of time to wait before respawn
     public Player_Move gamePlayer; //referring to player_move script and object it is attached to
-
+    public int dragonBall;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +22,9 @@ public class LevelManager : MonoBehaviour
         gamePlayer.gameObject.SetActive(false); //disabling player object temp
         gamePlayer.transform.position = gamePlayer.respawnPoint; //setting position point to respawn point in player_move script
         gameObject.gameObject.SetActive(true); //re-enabling player object
+    }
+
+    public void AddDragonBall(int numberOfDragonBalls) {
+        dragonBall += numberOfDragonBalls;
     }
 }

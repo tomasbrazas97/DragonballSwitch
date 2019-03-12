@@ -7,6 +7,7 @@ public class SwitchScript : MonoBehaviour
 
     //Game objects
     public GameObject char1, char2;
+    public CameraController MainCamera;
 
     //Which character is displayed
     int charDisplayed = 1;
@@ -19,7 +20,7 @@ public class SwitchScript : MonoBehaviour
         char1.gameObject.SetActive(true);
         char2.gameObject.SetActive(false);
 
-       
+        MainCamera = FindObjectOfType<CameraController>();
     }
     void Update()
     {

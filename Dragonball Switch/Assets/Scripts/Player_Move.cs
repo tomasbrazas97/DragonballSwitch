@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour
 {
     //variables
-    public float speed = 5f;
+    public float speed = 0f;
     public float jumpSpeed = 6f;
     private float movement = 0f;
     private Rigidbody2D rigidBody;
+    private bool attack;
 
     public Transform groundCheckPoint; //Bottom of player, checking if theyre on the ground
     public float groundCheckRadius; // Radius of Player ground check
@@ -19,6 +20,7 @@ public class Player_Move : MonoBehaviour
     public Vector3 respawnPoint; //Store position of where player is going to respawn to
     public LevelManager gameLevelManager;
 
+
     private void Start()  {
         //Player assets
         rigidBody = GetComponent<Rigidbody2D>();
@@ -28,6 +30,7 @@ public class Player_Move : MonoBehaviour
         respawnPoint = transform.position;
 
         gameLevelManager = FindObjectOfType<LevelManager>();
+
     }
 
     private void Update() {
@@ -35,22 +38,29 @@ public class Player_Move : MonoBehaviour
         isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
         movement = Input.GetAxis("Horizontal");
 
-        //will only move if keys left or right are pressed
-        if (movement > 0f)  {  //right
-            rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-            transform.localScale = new Vector2(1f, 1f);
-        }
-        else if (movement < 0f)  { //left
-            rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-            transform.localScale = new Vector2(-1f, 1f);
-        }
-        else { //dont move if none of keys are pressed
-            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
-        }
+        if (!this.playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            //will only move if keys left or right are pressed
+            if (movement > 0f)
+            {  //right
+                rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
+                transform.localScale = new Vector2(1f, 1f);
+            }
+            else if (movement < 0f)
+            { //left
+                rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
+                transform.localScale = new Vector2(-1f, 1f);
+            }
+            else
+            { //dont move if none of keys are pressed
+                rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+            }
 
-        //Jump, can check all inputs in Edit->Project Settings->Input
-        if(Input.GetButtonDown ("Jump") && isTouchingGround == true)  {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+            //Jump, can check all inputs in Edit->Project Settings->Input
+            if (Input.GetButtonDown("Jump") && isTouchingGround == true)
+            {
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+            }
         }
 
         //Math abs will turn any negative number into positive number
@@ -58,6 +68,18 @@ public class Player_Move : MonoBehaviour
         //RUN ANIMATION WON'T PLAY IF SPEED IS LESS THAN 0.1
         playerAnimation.SetFloat("Speed", Mathf.Abs (rigidBody.velocity.x));
         playerAnimation.SetBool("OnGround", isTouchingGround);
+
+        if (Input.GetKey(KeyCode.LeftShift)) {//Attack input
+
+            attack = true;
+            rigidBody.velocity = Vector2.zero;
+        }
+        if (attack && Input.GetKey(KeyCode.LeftShift) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            playerAnimation.SetTrigger("Attack");
+            attack = false;
+           
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)  {
@@ -70,4 +92,5 @@ public class Player_Move : MonoBehaviour
             respawnPoint = other.transform.position;
         }
     }
+
 }

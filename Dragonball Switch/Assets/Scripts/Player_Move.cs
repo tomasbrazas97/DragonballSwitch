@@ -20,6 +20,8 @@ public class Player_Move : MonoBehaviour
     public Vector3 respawnPoint; //Store position of where player is going to respawn to
     public LevelManager gameLevelManager;
 
+    public GameObject Fireball;
+
 
     private void Start()  {
         //Player assets
@@ -69,6 +71,7 @@ public class Player_Move : MonoBehaviour
         playerAnimation.SetFloat("Speed", Mathf.Abs (rigidBody.velocity.x));
         playerAnimation.SetBool("OnGround", isTouchingGround);
 
+        //Attack 
         if (Input.GetKey(KeyCode.LeftShift)) {//Attack input
 
             attack = true;
@@ -79,6 +82,12 @@ public class Player_Move : MonoBehaviour
             playerAnimation.SetTrigger("Attack");
             attack = false;
            
+        }
+
+        if (Input.GetKey(KeyCode.V))
+        {
+            playerAnimation.SetTrigger("Shoot");
+            ShootProjectile(0);
         }
     }
 
@@ -91,6 +100,13 @@ public class Player_Move : MonoBehaviour
             //When player reaches checkpoint, respawn point will be set to position of checkpoint
             respawnPoint = other.transform.position;
         }
+    }
+
+    //Shoot projectile Fireball
+    public void ShootProjectile(int value)
+    {  
+        GameObject tmp = (GameObject)Instantiate(Fireball, transform.position, Quaternion.identity);
+        tmp.GetComponent<ProjectileScript>().Initialize(Vector2.right);
     }
 
 }

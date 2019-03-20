@@ -8,6 +8,7 @@ public class Player_Move : MonoBehaviour
     public float speed = 0f;
     public float jumpSpeed = 6f;
     private float movement = 0f;
+    private float direction = 1f; //instantiated to allow projectiles to work
     private Rigidbody2D rigidBody;
     private bool attack;
 
@@ -45,11 +46,13 @@ public class Player_Move : MonoBehaviour
             //will only move if keys left or right are pressed
             if (movement > 0f)
             {  //right
+                direction =1f;
                 rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
                 transform.localScale = new Vector2(1f, 1f);
             }
             else if (movement < 0f)
             { //left
+                direction = -1f;
                 rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
                 transform.localScale = new Vector2(-1f, 1f);
             }
@@ -104,9 +107,17 @@ public class Player_Move : MonoBehaviour
 
     //Shoot projectile Fireball
     public void ShootProjectile(int value)
-    {  
-        GameObject tmp = (GameObject)Instantiate(Fireball, transform.position, Quaternion.identity);
-        tmp.GetComponent<ProjectileScript>().Initialize(Vector2.right);
+    {
+        if (direction > 0f)
+        { 
+            GameObject tmp = (GameObject)Instantiate(Fireball, transform.position, Quaternion.identity);
+            tmp.GetComponent<ProjectileScript>().Initialize(Vector2.right);
+        }//right facing
+        else if (direction <0f)
+        {
+            GameObject tmp = (GameObject)Instantiate(Fireball, transform.position, Quaternion.identity);
+            tmp.GetComponent<ProjectileScript>().Initialize(Vector2.left);
+        }//left facing
     }
 
 }

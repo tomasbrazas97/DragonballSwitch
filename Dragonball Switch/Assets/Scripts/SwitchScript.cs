@@ -40,8 +40,8 @@ public class SwitchScript : MonoBehaviour
             // if the char 1 is displayed
             case 1:
                 tempPosition= char1.transform.position;
-                char1.transform.position = char2.transform.position;
-                char2.transform.position = tempPosition;
+                char1.transform.position = char2.transform.position; // Set Goku's position to Vegeta's
+                char2.transform.position = tempPosition; //set Vegeta's position to Goku's
                 //switch to char 2
                 charDisplayed = 2;  
 
@@ -53,8 +53,8 @@ public class SwitchScript : MonoBehaviour
             // if the char 1 is displayed
             case 2:
                 tempPosition = char2.transform.position;
-                char2.transform.position = char1.transform.position;
-                char1.transform.position = tempPosition;
+                char2.transform.position = char1.transform.position; //set Vegeta's position to Goku's
+                char1.transform.position = tempPosition; //Set Goku's position to Vegeta's
                 //switch to char 1
                 charDisplayed = 1;
 

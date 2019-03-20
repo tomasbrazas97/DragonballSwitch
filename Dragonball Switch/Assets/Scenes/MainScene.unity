@@ -323,6 +323,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1433486560, guid: 668ff12f40e590e4e88acfe59d69e323, type: 3}
+      propertyPath: Fireball
+      value: 
+      objectReference: {fileID: 176788645493363888, guid: 1db9f15921f83b74bb84955eace1c417,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 668ff12f40e590e4e88acfe59d69e323, type: 3}
 --- !u!1 &256111967
@@ -1910,6 +1915,7 @@ MonoBehaviour:
     m_Bits: 256
   respawnPoint: {x: 0, y: 0, z: 0}
   gameLevelManager: {fileID: 0}
+  Fireball: {fileID: 0}
 --- !u!95 &1657074115620170772
 Animator:
   serializedVersion: 3

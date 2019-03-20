@@ -8,6 +8,7 @@ public class SwitchScript : MonoBehaviour
     //Game objects
     public GameObject char1, char2;
     public CameraController MainCamera;
+    public Vector3 tempPosition;
 
     //Which character is displayed
     int charDisplayed = 1;
@@ -38,9 +39,11 @@ public class SwitchScript : MonoBehaviour
 
             // if the char 1 is displayed
             case 1:
-
+                tempPosition= char1.transform.position;
+                char1.transform.position = char2.transform.position;
+                char2.transform.position = tempPosition;
                 //switch to char 2
-                charDisplayed = 2;
+                charDisplayed = 2;  
 
                 // hide 1 and activate 2
                 char1.gameObject.SetActive(false);
@@ -49,7 +52,9 @@ public class SwitchScript : MonoBehaviour
 
             // if the char 1 is displayed
             case 2:
-
+                tempPosition = char2.transform.position;
+                char2.transform.position = char1.transform.position;
+                char1.transform.position = tempPosition;
                 //switch to char 1
                 charDisplayed = 1;
 

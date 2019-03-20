@@ -1915,7 +1915,7 @@ MonoBehaviour:
     m_Bits: 256
   respawnPoint: {x: 0, y: 0, z: 0}
   gameLevelManager: {fileID: 0}
-  Fireball: {fileID: 0}
+  Fireball: {fileID: 176788645493363888, guid: 1db9f15921f83b74bb84955eace1c417, type: 3}
 --- !u!95 &1657074115620170772
 Animator:
   serializedVersion: 3
@@ -1952,7 +1952,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.85, y: 1}
+    oldSize: {x: 0.74, y: 1.1}
     newSize: {x: 0.85, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

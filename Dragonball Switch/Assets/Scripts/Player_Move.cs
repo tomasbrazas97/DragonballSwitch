@@ -22,6 +22,7 @@ public class Player_Move : MonoBehaviour
     public LevelManager gameLevelManager;
 
     public GameObject Fireball;
+    
 
 
     private void Start()  {
@@ -33,7 +34,7 @@ public class Player_Move : MonoBehaviour
         respawnPoint = transform.position;
 
         gameLevelManager = FindObjectOfType<LevelManager>();
-
+       
     }
 
     private void Update() {

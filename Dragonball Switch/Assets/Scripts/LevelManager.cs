@@ -9,12 +9,20 @@ public class LevelManager : MonoBehaviour
     public Player_Move gamePlayer; //referring to player_move script and object it is attached to
     public int dragonBall;
     public Text scoreText;
+    public Transform pfHpBar; 
 
     // Start is called before the first frame update
     void Start()
     {
         gamePlayer = FindObjectOfType<Player_Move>();
         scoreText.text = "Score: " + dragonBall;
+        HealthSystem healthSystem = new HealthSystem(100);
+      
+        Debug.Log("Health: " + healthSystem.GetHealth());
+        Transform healthBarTranform = Instantiate(pfHpBar, new Vector3(0, 10), Quaternion.identity); //Instantiate the HP Bar
+        HpBarScript hpBar = healthBarTranform.GetComponent<HpBarScript>();
+        hpBar.Setup(healthSystem);
+        healthSystem.Damage(10);
     }
 
     // Update is called once per frame

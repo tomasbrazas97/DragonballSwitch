@@ -88,7 +88,7 @@ public class Player_Move : MonoBehaviour
            
         }
 
-        if (Input.GetKey(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             playerAnimation.SetTrigger("Shoot");
             ShootProjectile(0);

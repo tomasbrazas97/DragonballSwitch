@@ -12,7 +12,7 @@ public class EnergyScript : MonoBehaviour
     public EnergyScript(int maxEnergy)
     {
         this.maxEnergy = maxEnergy;
-        energy = maxHealth;
+        // energy = maxHealth;
     }
 
     public int GetEnergy()

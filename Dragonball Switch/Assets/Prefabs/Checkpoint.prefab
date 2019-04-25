@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 1282918339
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24efeb36027dc874c948d1bd6a637110, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c87cdd15ca1929459b45af3615cfb17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.15, y: 1.63}
+    oldSize: {x: 0.64285713, y: 0.9285714}
     newSize: {x: 1.15, y: 1.63}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -119,6 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1e1325e009d994a9f64071a6cc3dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Flag: {fileID: 21300000, guid: 24efeb36027dc874c948d1bd6a637110, type: 3}
-  FlagGreen: {fileID: 21300000, guid: 3dc15fb22ac1adb4eaec13977c0e102d, type: 3}
+  Flag: {fileID: 21300000, guid: 7c87cdd15ca1929459b45af3615cfb17, type: 3}
+  FlagGreen: {fileID: 21300008, guid: 7c87cdd15ca1929459b45af3615cfb17, type: 3}
   checkpointReached: 0

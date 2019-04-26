@@ -8,9 +8,12 @@ public class ProjectileScript : MonoBehaviour
     private float speed = 5;
     private Rigidbody2D myRigidbody;
     private Vector2 direction;
+
+ 
     // Start is called before the first frame update
     void Start() {
-        myRigidbody = GetComponent<Rigidbody2D>(); 
+        myRigidbody = GetComponent<Rigidbody2D>();
+
     }
 
     private void FixedUpdate()

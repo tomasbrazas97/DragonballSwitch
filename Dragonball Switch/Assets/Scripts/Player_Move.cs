@@ -22,8 +22,18 @@ public class Player_Move : MonoBehaviour
     public LevelManager gameLevelManager;
 
     public GameObject Fireball;
-    
 
+    [SerializeField]
+    private Stat health;
+
+    [SerializeField]
+    private Stat energy;
+
+    private void Awake()
+    {
+        health.Initialize();
+        energy.Initialize();
+    }
 
     private void Start()  {
         //Player assets
@@ -93,6 +103,8 @@ public class Player_Move : MonoBehaviour
             playerAnimation.SetTrigger("Shoot");
             ShootProjectile(0);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)  {
@@ -103,6 +115,16 @@ public class Player_Move : MonoBehaviour
         if(other.tag == "Checkpoint") {
             //When player reaches checkpoint, respawn point will be set to position of checkpoint
             respawnPoint = other.transform.position;
+        }
+
+        if(other.tag == "Spikes")
+        {
+            health.CurrentVal -= 10;
+        }
+
+        if(other.tag == "Projectile")
+        {
+            health.CurrentVal -= 5;
         }
     }
 

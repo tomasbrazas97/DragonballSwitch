@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FallDetector
   - Checkpoint
+  - Spikes
+  - Projectile
   layers:
   - Default
   - TransparentFX

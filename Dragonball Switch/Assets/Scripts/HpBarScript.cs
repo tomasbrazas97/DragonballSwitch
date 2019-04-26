@@ -2,24 +2,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HpBarScript : MonoBehaviour
 {
-    private HealthSystem healthSystem;
+    private float fillAmount;
+    public Image content;
 
-    public void Setup(HealthSystem healthSystem)
+    [SerializeField]
+    private float lerpSpeed;
+
+    [SerializeField]
+    private Text valueText;
+
+    public float MaxValue { get; set; }
+    public float Value
     {
-        this.healthSystem = healthSystem;
-        healthSystem.onHealthChange += HealthSystem_OnHealthChange;
+        set
+        {
+            //Store everything before : into array
+            string[] tmp = valueText.text.Split(':');
+            //print out array and value
+            valueText.text = tmp[0] + ": " + value;
+            fillAmount = Map(value, 0, MaxValue, 0, 1);
+        }
     }
-    private void HealthSystem_OnHealthChange (object sender, System.EventArgs e)
+
+
+    private void Start()
     {
-        transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
     }
 
-    /*private void Update()
-{
+    private void Update()
+    {
+        if (fillAmount != content.fillAmount)
+        {
+            HandleBar();
+        } 
+    }
 
-    transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);   //Innefficient way of updating HP Bars.
-}*/
+    private void HandleBar()
+    {
+        content.fillAmount = Mathf.Lerp(content.fillAmount, fillAmount, Time.deltaTime * lerpSpeed);
+    }
+
+    //Take current health and change that value between 0 and 1
+    private float Map(float value, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+        
+    }
+
+
+    
 }

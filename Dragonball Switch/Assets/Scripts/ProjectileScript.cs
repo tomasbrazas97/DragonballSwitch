@@ -8,9 +8,16 @@ public class ProjectileScript : MonoBehaviour
     private float speed = 5;
     private Rigidbody2D myRigidbody;
     private Vector2 direction;
+
+    private Transform player;
+    private Vector2 target;
     // Start is called before the first frame update
     void Start() {
-        myRigidbody = GetComponent<Rigidbody2D>(); 
+        myRigidbody = GetComponent<Rigidbody2D>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        target = new Vector2(player.position.x, player.position.y);
     }
 
     private void FixedUpdate()

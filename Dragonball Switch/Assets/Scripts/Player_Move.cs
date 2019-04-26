@@ -122,6 +122,10 @@ public class Player_Move : MonoBehaviour
             health.CurrentVal -= 10;
         }
 
+        if(other.tag == "Projectile")
+        {
+            health.CurrentVal -= 5;
+        }
     }
 
     //Shoot projectile Fireball

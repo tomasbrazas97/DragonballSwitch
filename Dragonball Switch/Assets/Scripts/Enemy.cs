@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private float direction;
     public static bool enemyShoot = false;
 
+    private bool facingRight;
+
     private float timeBtwShots;
     public float startTimeBtwShots;
 
@@ -42,7 +44,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        float horizontal = Input.GetAxis("Horizontal");
+        Flip(horizontal);
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
@@ -126,4 +129,14 @@ public class Enemy : MonoBehaviour
         GetComponent<Enemy>().enabled = true;
     }
 
+    private void Flip (float horizontal)
+    {
+        if(horizontal < 0 && !facingRight || horizontal > 0 && facingRight)
+        {
+            facingRight = !facingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+    }
 }

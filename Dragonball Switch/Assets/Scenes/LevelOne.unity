@@ -47394,6 +47394,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1882911055416597621, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50480,6 +50485,21 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199624, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199624, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199624, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.51
+      objectReference: {fileID: 0}
     - target: {fileID: 3399557824638199627, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
         type: 3}
       propertyPath: m_IsTrigger
@@ -50500,6 +50520,21 @@ PrefabInstance:
       propertyPath: health.bar
       value: 
       objectReference: {fileID: 1191199832}
+    - target: {fileID: 3399557824638199638, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: stoppingDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199638, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: retreatDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199638, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: startTimeBtwShots
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f316e76f89ed31342a4d8c09f1fe6e6a, type: 3}
 --- !u!4 &3478989346948455056 stripped

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Animator enemyAnimation;
     private bool isDead;
     private float direction;
+    public static bool enemyShoot = false;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -34,7 +35,7 @@ public class Enemy : MonoBehaviour
 
         enemyAnimation = GetComponent<Animator>();
 
-        timeBtwShots = startTimeBtwShots;
+        
         isDead = false;
     }
 
@@ -45,17 +46,31 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            timeBtwShots = startTimeBtwShots;
             transform.localScale = new Vector2(1f, 1f);
+          
         }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance &&
-            Vector2.Distance(transform.position, player.position) > retreatDistance)
+       else if (Vector2.Distance(transform.position,player.position) <= stoppingDistance && Vector2.Distance(transform.position,player.position)>retreatDistance)
         {
             transform.position = this.transform.position;
+          
+
         }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        else if (Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
             transform.localScale = new Vector2(-1f, 1f);
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            timeBtwShots = 100;
+            enemyAnimation.SetTrigger("Attack");
+        }
+
+        if (enemyShoot == true)
+        {
+            //Stops animation Loop
+            enemyShoot = false;
+            enemyAnimation.SetTrigger("Shoot");
+        
+
         }
 
         if (timeBtwShots <= 0)
@@ -85,6 +100,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "ProjectileEnem")
         {
             health.CurrentVal -= 50;
+            enemyAnimation.SetTrigger("Hurt");
         }
 
     }

@@ -11,6 +11,7 @@ public class Player_Move : MonoBehaviour
     private float direction = 1f; //instantiated to allow projectiles to work
     private Rigidbody2D rigidBody;
     private bool attack;
+    public GameObject attackTrigger;
     private bool combo;
 
     public Transform groundCheckPoint; //Bottom of player, checking if theyre on the ground
@@ -92,6 +93,8 @@ public class Player_Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z)) {//Attack input
             attack = true;
             rigidBody.velocity = Vector2.zero;
+            attackTrigger.SetActive(true);
+            playerAnimation.SetTrigger("Attack");
 
             //Detects which character is displayed and plays their respective voice clip
             if (SwitchScript.charDisplayed == 1)
@@ -107,9 +110,8 @@ public class Player_Move : MonoBehaviour
         }
         if (attack && Input.GetKey(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            playerAnimation.SetTrigger("Attack");
-           // attack = false;
-           
+            attackTrigger.SetActive(false);
+
         }
 
         if (Input.GetKeyDown(KeyCode.X))

@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             timeBtwShots = startTimeBtwShots;
-            transform.localScale = new Vector2(1f, 1f);
           
         }
        else if (Vector2.Distance(transform.position,player.position) <= stoppingDistance && Vector2.Distance(transform.position,player.position)>retreatDistance)
@@ -103,6 +102,12 @@ public class Enemy : MonoBehaviour
             enemyAnimation.SetTrigger("Hurt");
         }
 
+        if (other.tag == "Melee")
+        {
+            health.CurrentVal -= 50;
+            enemyAnimation.SetTrigger("Hurt");
+        }
+
     }
 
     //Disables enemeies when off screen
@@ -115,4 +120,5 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<Enemy>().enabled = true;
     }
+
 }

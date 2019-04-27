@@ -22,6 +22,11 @@ public class SoundsScript : MonoBehaviour
     public void Play(string name)
         {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        //Error Handling if the sound cannot be found
+        if (s == null)
+            return;
+
+
         s.source.Play();
     }
 

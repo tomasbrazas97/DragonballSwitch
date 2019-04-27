@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class BossAI : MonoBehaviour
 {
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
     private Animator enemyAnimation;
     private bool isDead;
-    private float direction;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -41,11 +40,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            transform.localScale = new Vector2(1f, 1f);
         }
         else if (Vector2.Distance(transform.position, player.position) < stoppingDistance &&
             Vector2.Distance(transform.position, player.position) > retreatDistance)
@@ -54,7 +51,6 @@ public class Enemy : MonoBehaviour
         }
         else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
         {
-            transform.localScale = new Vector2(-1f, 1f);
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
@@ -84,17 +80,5 @@ public class Enemy : MonoBehaviour
         {
             health.CurrentVal -= 50;
         }
-
-    }
-
-    //Disables enemeies when off screen
-    private void OnBecameInvisible()
-    {
-        GetComponent <Enemy> ().enabled = false;
-    }
-    //Re enables enemies once they are visible
-    private void OnBecameVisible()
-    {
-        GetComponent<Enemy>().enabled = true;
     }
 }

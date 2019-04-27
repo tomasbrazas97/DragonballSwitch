@@ -50144,6 +50144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Saibaman
       objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199628, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3399557824638199639, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50311,6 +50316,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636283793b50d3b40a6e1a1bfab0617e, type: 3}
+--- !u!1001 &6318128472835078294
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1882911055416597621, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_Name
+      value: Broly
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 724360900296680872, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284231077841868440, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: startTimeBtwShots
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198018155657333590, guid: 406629aa0c9ef6f40bc9d8b1034e5586,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6198018155657333590, guid: 406629aa0c9ef6f40bc9d8b1034e5586, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 406629aa0c9ef6f40bc9d8b1034e5586, type: 3}
 --- !u!1001 &7590981683475090105
 PrefabInstance:
   m_ObjectHideFlags: 0

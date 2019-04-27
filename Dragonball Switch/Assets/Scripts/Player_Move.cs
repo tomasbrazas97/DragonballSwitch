@@ -138,6 +138,7 @@ public class Player_Move : MonoBehaviour
         {
             rigidBody.velocity = Vector2.zero;
 
+
             if (SwitchScript.charDisplayed == 1)
             
             {

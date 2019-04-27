@@ -13,6 +13,8 @@ public class Player_Move : MonoBehaviour
     private bool attack;
     public GameObject attackTrigger;
     private bool combo;
+    public Transform firePoint;
+    public LineRenderer lineRender;
 
     public Transform groundCheckPoint; //Bottom of player, checking if theyre on the ground
     public float groundCheckRadius; // Radius of Player ground check
@@ -29,6 +31,7 @@ public class Player_Move : MonoBehaviour
 
     [SerializeField]
     private Stat health;
+    private float waitTime =3f;
 
     [SerializeField]
     private Stat energy;
@@ -48,6 +51,7 @@ public class Player_Move : MonoBehaviour
         respawnPoint = transform.position;
 
         gameLevelManager = FindObjectOfType<LevelManager>();
+      
        
     }
 
@@ -130,7 +134,28 @@ public class Player_Move : MonoBehaviour
             }
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            rigidBody.velocity = Vector2.zero;
+
+            if (SwitchScript.charDisplayed == 1)
+            
+            {
+                StartCoroutine(SpecialAtk());
+                playerAnimation.SetTrigger("Special");
+                FindObjectOfType<SoundsScript>().Play("GokuSpecial");
+                FindObjectOfType<SoundsScript>().Play("GokuSpec");
+            }
+            else
+            {
+                StartCoroutine(SpecialAtk());
+                playerAnimation.SetTrigger("Special");
+                FindObjectOfType<SoundsScript>().Play("vegetaSpecial");
+                FindObjectOfType<SoundsScript>().Play("vegSpecial");
+            }
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)  {
@@ -187,5 +212,30 @@ public class Player_Move : MonoBehaviour
             tmp.GetComponent<ProjectileScript>().Initialize(Vector2.left);
         }//left facing
     }
+        
+    IEnumerator SpecialAtk()
+    {
+        yield return new WaitForSeconds(1);
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
+        if (hitInfo)
+        {
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
 
+            lineRender.SetPosition(0, firePoint.position);
+            lineRender.SetPosition(1, hitInfo.point);
+
+
+        }
+        else
+        {
+            lineRender.SetPosition(0, firePoint.position);
+            lineRender.SetPosition(1, firePoint.position + firePoint.right * 10);
+        }
+
+
+        lineRender.enabled = true;
+        //Wait until end of animation
+        yield return new WaitForSeconds(1);
+        lineRender.enabled = false;
+    }
 }

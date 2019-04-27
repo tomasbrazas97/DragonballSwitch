@@ -104,7 +104,12 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Melee")
         {
-            health.CurrentVal -= 50;
+            health.CurrentVal -= 20;
+            enemyAnimation.SetTrigger("Hurt");
+        }
+        if (other.tag == "Special")
+        {
+            health.CurrentVal -= 90;
             enemyAnimation.SetTrigger("Hurt");
         }
 

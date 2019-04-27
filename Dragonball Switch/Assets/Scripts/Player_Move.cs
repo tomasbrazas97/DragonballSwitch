@@ -112,7 +112,7 @@ public class Player_Move : MonoBehaviour
                 FindObjectOfType<SoundsScript>().Play("VegAtk1");
             }
         }
-        if (attack && Input.GetKey(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (attack && Input.GetKeyDown(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             attackTrigger.SetActive(false);
 
@@ -134,7 +134,7 @@ public class Player_Move : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             rigidBody.velocity = Vector2.zero;
 
@@ -154,9 +154,13 @@ public class Player_Move : MonoBehaviour
                 FindObjectOfType<SoundsScript>().Play("vegSpecial");
             }
         }
+        //Attack 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            StartCoroutine(Combo());
+        }
 
-
-    }
+        }
 
     private void OnTriggerEnter2D(Collider2D other)  {
         if(other.tag == "FallDetector")  {
@@ -237,5 +241,48 @@ public class Player_Move : MonoBehaviour
         //Wait until end of animation
         yield return new WaitForSeconds(1);
         lineRender.enabled = false;
+    }
+    IEnumerator Combo()
+    {
+       
+            combo = true;
+            rigidBody.velocity = Vector2.zero;
+            attackTrigger.SetActive(true);
+            playerAnimation.SetTrigger("Attack");
+      
+            playerAnimation.SetTrigger("Combo");
+ 
+
+        //Detects which character is displayed and plays their respective voice clip
+        if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("GokuAtk1");
+                yield return new WaitForSeconds(1);
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("GokuAtk2");
+                yield return new WaitForSeconds(1);
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("GokuAtk3");
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("VegAtk3");
+                yield return new WaitForSeconds(0);
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("VegAtk1");
+                yield return new WaitForSeconds(1);
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("VegAtk2");
+        }
+        
+        if (combo && Input.GetKeyDown(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Combo"))
+        {
+            attackTrigger.SetActive(false);
+
+        }
+
     }
 }

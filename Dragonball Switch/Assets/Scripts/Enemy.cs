@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
+    private Animator enemyAnimation;
+    private bool isDead;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -29,7 +31,10 @@ public class Enemy : MonoBehaviour
         //Player tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        enemyAnimation = GetComponent<Animator>();
+
         timeBtwShots = startTimeBtwShots;
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -62,7 +67,9 @@ public class Enemy : MonoBehaviour
 
         if(health.CurrentVal == 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            enemyAnimation.SetBool("Dead", isDead);
+            Destroy(gameObject, 2f);
         }
     }
 

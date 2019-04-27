@@ -10,6 +10,7 @@ public class EnemyProjectile: MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -23,6 +23,7 @@ public class EnemyProjectile: MonoBehaviour
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        
 
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
@@ -32,6 +33,8 @@ public class EnemyProjectile: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Triggers sound on projectile shot
+        FindObjectOfType<SoundsScript>().Play("Ki");
         if (other.CompareTag("Player"))
         {
             DestroyProjectile();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ public class SwitchScript : MonoBehaviour
     public Vector3 tempPosition;
 
     //Which character is displayed
-    int charDisplayed = 1;
+    public static int charDisplayed = 1;
+   
 
     //Initialization 
     void Start()
@@ -43,8 +45,10 @@ public class SwitchScript : MonoBehaviour
                 char1.transform.position = char2.transform.position; // Set Goku's position to Vegeta's
                 char2.transform.position = tempPosition; //set Vegeta's position to Goku's
                 //switch to char 2
-                charDisplayed = 2;  
-
+                charDisplayed = 2;
+                //Sound effects
+                FindObjectOfType<SoundsScript>().Play("Switch");
+                FindObjectOfType<SoundsScript>().Play("vegTagIn");
                 // hide 1 and activate 2
                 char1.gameObject.SetActive(false);
                 char2.gameObject.SetActive(true);
@@ -57,6 +61,10 @@ public class SwitchScript : MonoBehaviour
                 char1.transform.position = tempPosition; //Set Goku's position to Vegeta's
                 //switch to char 1
                 charDisplayed = 1;
+                //SoundEffects
+                FindObjectOfType<SoundsScript>().Play("Switch");
+                FindObjectOfType<SoundsScript>().Play("GokuTag");
+                
 
                 // hide 2 and activate 1
                 char1.gameObject.SetActive(true);
@@ -65,4 +73,5 @@ public class SwitchScript : MonoBehaviour
         }
 
     }
+   
 }

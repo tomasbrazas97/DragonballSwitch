@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour
 
         if(health.CurrentVal == 0)
         {
+            FindObjectOfType<SoundsScript>().Play("SaibaDeath");
             isDead = true;
             enemyAnimation.SetBool("Dead", isDead);
             Destroy(gameObject, 2f);

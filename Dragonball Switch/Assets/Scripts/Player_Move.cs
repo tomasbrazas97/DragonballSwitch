@@ -21,6 +21,8 @@ public class Player_Move : MonoBehaviour
     public Vector3 respawnPoint; //Store position of where player is going to respawn to
     public LevelManager gameLevelManager;
 
+   
+
     public GameObject Fireball;
 
     [SerializeField]
@@ -86,12 +88,22 @@ public class Player_Move : MonoBehaviour
         playerAnimation.SetBool("OnGround", isTouchingGround);
 
         //Attack 
-        if (Input.GetKey(KeyCode.LeftShift)) {//Attack input
-
+        if (Input.GetKey(KeyCode.Z)) {//Attack input
             attack = true;
             rigidBody.velocity = Vector2.zero;
+            //Detects which character is displayed and plays their respective voice clip
+            if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("GokuAtk1");
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("Atk");
+                FindObjectOfType<SoundsScript>().Play("VegAtk1");
+            }
         }
-        if (attack && Input.GetKey(KeyCode.LeftShift) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (attack && Input.GetKey(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             playerAnimation.SetTrigger("Attack");
             attack = false;
@@ -102,6 +114,16 @@ public class Player_Move : MonoBehaviour
         {
             playerAnimation.SetTrigger("Shoot");
             ShootProjectile(0);
+            if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("Ki");
+                FindObjectOfType<SoundsScript>().Play("GokuAtk3");
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("Ki");
+                FindObjectOfType<SoundsScript>().Play("VegAtk4");
+            }
         }
 
         
@@ -111,20 +133,39 @@ public class Player_Move : MonoBehaviour
         if(other.tag == "FallDetector")  {
             //Player enters FallDetector zone (collider with a trigger)
             gameLevelManager.Respawn(); // calling respawn method from LevelManager script
+            FindObjectOfType<SoundsScript>().Play("Respawn");
         }
         if(other.tag == "Checkpoint") {
             //When player reaches checkpoint, respawn point will be set to position of checkpoint
+            FindObjectOfType<SoundsScript>().Play("Respawn");
             respawnPoint = other.transform.position;
         }
 
         if(other.tag == "Spikes")
         {
             health.CurrentVal -= 10;
+            if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("GokuHurt");
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("VegHurt");
+            }
         }
+    
 
         if(other.tag == "Projectile")
         {
             health.CurrentVal -= 5;
+            if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("GokuHurt");
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("VegHurt");
+            }
         }
     }
 

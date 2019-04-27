@@ -44467,6 +44467,235 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245493754}
   m_CullTransparentMesh: 0
+--- !u!1 &1249923578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249923581}
+  - component: {fileID: 1249923580}
+  - component: {fileID: 1249923579}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1249923579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249923578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147324c16e4c09e4299ea976973141fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Atk
+    audioClip: {fileID: 8300000, guid: 1fce9514e5eed214caf958b153632615, type: 3}
+    source: {fileID: 0}
+  - name: AtkHit
+    audioClip: {fileID: 8300000, guid: fc54decdb0ebfe049a64b235606a4c44, type: 3}
+    source: {fileID: 0}
+  - name: GokuAtk1
+    audioClip: {fileID: 8300000, guid: 9828ea30d3a837747a88e58231e610a5, type: 3}
+    source: {fileID: 0}
+  - name: GokuAtk2
+    audioClip: {fileID: 8300000, guid: 4487cf4d6cf9f7245a15d659f554e49a, type: 3}
+    source: {fileID: 0}
+  - name: GokuAtk3
+    audioClip: {fileID: 8300000, guid: 85d3fe63829875644b3b0b5072a8aa40, type: 3}
+    source: {fileID: 0}
+  - name: GokuAtk4
+    audioClip: {fileID: 8300000, guid: 5109873b14dacbd4a87a3c43b87d3cd4, type: 3}
+    source: {fileID: 0}
+  - name: GokuDeath
+    audioClip: {fileID: 8300000, guid: dfd7d59831e0f68449a71774ce1d5e34, type: 3}
+    source: {fileID: 0}
+  - name: GokuSpec
+    audioClip: {fileID: 8300000, guid: a9278d8ef84f7914c9c835989ead6302, type: 3}
+    source: {fileID: 0}
+  - name: GokuSpecial
+    audioClip: {fileID: 8300000, guid: f7ec5188d7ee2fb41a52d89b91560c17, type: 3}
+    source: {fileID: 0}
+  - name: GokuTag
+    audioClip: {fileID: 8300000, guid: 414e76ac721bf3342831436af49802aa, type: 3}
+    source: {fileID: 0}
+  - name: VegAtk1
+    audioClip: {fileID: 8300000, guid: c53100edebb108f4283476d085205645, type: 3}
+    source: {fileID: 0}
+  - name: VegAtk2
+    audioClip: {fileID: 8300000, guid: 47d0c79e0fc0ec246a3b535f5248d473, type: 3}
+    source: {fileID: 0}
+  - name: VegAtk3
+    audioClip: {fileID: 8300000, guid: d5be62003ee5f894fb6d0641c49cffc6, type: 3}
+    source: {fileID: 0}
+  - name: VegAtk4
+    audioClip: {fileID: 8300000, guid: c0bed35157944324e8a465b3bd0d1ab6, type: 3}
+    source: {fileID: 0}
+  - name: VegCharge
+    audioClip: {fileID: 8300000, guid: 54c2becf56e847c4e99e300a7f5663f9, type: 3}
+    source: {fileID: 0}
+  - name: vegDeath
+    audioClip: {fileID: 8300000, guid: 3830b2e6885bbaf41b5a58f5a7235f7f, type: 3}
+    source: {fileID: 0}
+  - name: vegSpecial
+    audioClip: {fileID: 8300000, guid: 25aeef21581fd6f4fae9df07d7b768bc, type: 3}
+    source: {fileID: 0}
+  - name: vegetaSpecial
+    audioClip: {fileID: 8300000, guid: 347bad1bafa09e243bae6c316f9fe3dd, type: 3}
+    source: {fileID: 0}
+  - name: vegTagIn
+    audioClip: {fileID: 8300000, guid: d8f18bbd64c016d4eace73fbda61bd04, type: 3}
+    source: {fileID: 0}
+  - name: Explosion
+    audioClip: {fileID: 8300000, guid: 8692b721c2d55394882d9f634efe6772, type: 3}
+    source: {fileID: 0}
+  - name: FullPower
+    audioClip: {fileID: 8300000, guid: 3d8102d87d421b8419d234a98c141642, type: 3}
+    source: {fileID: 0}
+  - name: Charge
+    audioClip: {fileID: 8300000, guid: 061a7aeba6236684abec3d50dd079fb5, type: 3}
+    source: {fileID: 0}
+  - name: Ki
+    audioClip: {fileID: 8300000, guid: be682d7cdfcfedc44ae8c55bf7ed50be, type: 3}
+    source: {fileID: 0}
+  - name: Switch
+    audioClip: {fileID: 8300000, guid: dcc06a73dcade78479a010678d89c9fd, type: 3}
+    source: {fileID: 0}
+  - name: 
+    audioClip: {fileID: 0}
+    source: {fileID: 0}
+  - name: Respawn
+    audioClip: {fileID: 8300000, guid: f99334d9da55c194d83a304114359e9f, type: 3}
+    source: {fileID: 0}
+  - name: SaibaDeath
+    audioClip: {fileID: 8300000, guid: 9d6a68f8c759b864a913d13162f46d7e, type: 3}
+    source: {fileID: 0}
+  - name: GokuHurt
+    audioClip: {fileID: 8300000, guid: d9ba40c9f72c1534f9373cf980a56093, type: 3}
+    source: {fileID: 0}
+  - name: VegHurt
+    audioClip: {fileID: 8300000, guid: 236080928a3417a4aaf466dd28dff7fe, type: 3}
+    source: {fileID: 0}
+  audioClip: {fileID: 0}
+--- !u!82 &1249923580
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249923578}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1249923581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249923578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.67385155, y: -3.2195644, z: 0.1690172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251281643
 GameObject:
   m_ObjectHideFlags: 0

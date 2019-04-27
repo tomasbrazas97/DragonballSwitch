@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - Spikes
   - Projectile
+  - ProjectileEnem
   layers:
   - Default
   - TransparentFX

@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 91356973}
   m_Layer: 0
   m_Name: spikes (9)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1570,11 +1570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433486562, guid: 668ff12f40e590e4e88acfe59d69e323, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.11
+      value: -4.06
       objectReference: {fileID: 0}
     - target: {fileID: 1433486562, guid: 668ff12f40e590e4e88acfe59d69e323, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.73
+      value: -3.97
       objectReference: {fileID: 0}
     - target: {fileID: 1433486562, guid: 668ff12f40e590e4e88acfe59d69e323, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 104681592}
   m_Layer: 0
   m_Name: spikes (11)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2314,7 +2314,7 @@ GameObject:
   - component: {fileID: 228053179}
   m_Layer: 0
   m_Name: spikes (3)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3039,7 +3039,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 182ce13eb28ec4f4897973a3eb9f3245, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3800,7 +3800,7 @@ GameObject:
   - component: {fileID: 474759066}
   m_Layer: 0
   m_Name: spikes (1)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4356,7 +4356,7 @@ GameObject:
   - component: {fileID: 599612384}
   m_Layer: 0
   m_Name: spikes (10)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42591,7 +42591,7 @@ GameObject:
   - component: {fileID: 1078450047}
   m_Layer: 0
   m_Name: spikes (7)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42697,7 +42697,7 @@ GameObject:
   - component: {fileID: 1079819573}
   m_Layer: 0
   m_Name: spikes (8)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43685,7 +43685,7 @@ GameObject:
   - component: {fileID: 1167527577}
   m_Layer: 0
   m_Name: spikes (5)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46659,7 +46659,7 @@ GameObject:
   - component: {fileID: 1601745209}
   m_Layer: 0
   m_Name: spikes (6)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46844,7 +46844,7 @@ GameObject:
   - component: {fileID: 1696343352}
   m_Layer: 0
   m_Name: spikes (4)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47114,7 +47114,7 @@ GameObject:
   - component: {fileID: 1736196674}
   m_Layer: 0
   m_Name: spikes (2)
-  m_TagString: Untagged
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50240,6 +50240,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199624, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199627, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199638, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: health.maxVal
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399557824638199638, guid: f316e76f89ed31342a4d8c09f1fe6e6a,
+        type: 3}
+      propertyPath: health.currentVal
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f316e76f89ed31342a4d8c09f1fe6e6a, type: 3}
 --- !u!4 &3478989346948455056 stripped
@@ -50268,7 +50288,7 @@ PrefabInstance:
     - target: {fileID: 3478989346948455056, guid: 636283793b50d3b40a6e1a1bfab0617e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.706
+      value: -3.95
       objectReference: {fileID: 0}
     - target: {fileID: 3478989346948455056, guid: 636283793b50d3b40a6e1a1bfab0617e,
         type: 3}

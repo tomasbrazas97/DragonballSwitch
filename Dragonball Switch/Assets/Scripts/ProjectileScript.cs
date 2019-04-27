@@ -32,5 +32,16 @@ public class ProjectileScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            DestroyProjectile();
+        }
+    }
 
+    void DestroyProjectile()
+    {
+        OnBecameInvisible();
+    }
 }

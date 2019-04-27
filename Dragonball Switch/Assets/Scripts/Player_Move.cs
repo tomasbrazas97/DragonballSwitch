@@ -11,6 +11,7 @@ public class Player_Move : MonoBehaviour
     private float direction = 1f; //instantiated to allow projectiles to work
     private Rigidbody2D rigidBody;
     private bool attack;
+    private bool combo;
 
     public Transform groundCheckPoint; //Bottom of player, checking if theyre on the ground
     public float groundCheckRadius; // Radius of Player ground check
@@ -88,9 +89,10 @@ public class Player_Move : MonoBehaviour
         playerAnimation.SetBool("OnGround", isTouchingGround);
 
         //Attack 
-        if (Input.GetKey(KeyCode.Z)) {//Attack input
+        if (Input.GetKeyDown(KeyCode.Z)) {//Attack input
             attack = true;
             rigidBody.velocity = Vector2.zero;
+
             //Detects which character is displayed and plays their respective voice clip
             if (SwitchScript.charDisplayed == 1)
             {
@@ -106,11 +108,11 @@ public class Player_Move : MonoBehaviour
         if (attack && Input.GetKey(KeyCode.Z) && !playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             playerAnimation.SetTrigger("Attack");
-            attack = false;
+           // attack = false;
            
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             playerAnimation.SetTrigger("Shoot");
             ShootProjectile(0);

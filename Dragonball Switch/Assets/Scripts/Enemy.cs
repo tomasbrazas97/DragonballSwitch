@@ -71,6 +71,8 @@ public class Enemy : MonoBehaviour
 
         if (health.CurrentVal == 0)
         {
+       
+            timeBtwShots = 100;
             FindObjectOfType<SoundsScript>().Play("SaibaDeath");
             isDead = true;
             enemyAnimation.SetBool("Dead", isDead);

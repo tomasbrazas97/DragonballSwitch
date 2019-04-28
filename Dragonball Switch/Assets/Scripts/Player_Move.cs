@@ -222,8 +222,17 @@ public class Player_Move : MonoBehaviour
 
         if (other.tag == "Food")
         {
-            health.CurrentVal += 10;
-            energy.CurrentVal += 25;
+            if (health.CurrentVal >= 100 && energy.CurrentVal >= 100)
+            {
+                health.CurrentVal += 0;
+                energy.CurrentVal += 0;
+            }
+            else
+            {
+                energy.CurrentVal += 25;
+                health.CurrentVal += 10;
+            }
+            
         }
     }
 

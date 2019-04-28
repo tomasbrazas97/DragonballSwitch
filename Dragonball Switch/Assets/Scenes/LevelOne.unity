@@ -44946,6 +44946,9 @@ MonoBehaviour:
   - name: VegHurt
     audioClip: {fileID: 8300000, guid: 236080928a3417a4aaf466dd28dff7fe, type: 3}
     source: {fileID: 0}
+  - name: collect
+    audioClip: {fileID: 8300000, guid: 13fb28cdc078fcd469e20040986a0418, type: 3}
+    source: {fileID: 0}
   audioClip: {fileID: 0}
 --- !u!82 &1249923580
 AudioSource:

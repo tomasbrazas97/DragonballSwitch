@@ -19,6 +19,7 @@ public class CollectibleScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") { //only objects with Player tag can destroy object
+            FindObjectOfType<SoundsScript>().Play("collect");
             gameLevelManager.AddDragonBall(dragonBallValue); //call addDragonBall from LevelManager and pass int value to it
             Destroy(gameObject);
         }

@@ -54,8 +54,7 @@ public class Player_Move : MonoBehaviour
         respawnPoint = transform.position;
 
         gameLevelManager = FindObjectOfType<LevelManager>();
-      
-       
+
     }
 
     private void Update() {
@@ -123,6 +122,7 @@ public class Player_Move : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
+            energy.CurrentVal -= 5;
             playerAnimation.SetTrigger("Shoot");
             ShootProjectile(0);
             if (SwitchScript.charDisplayed == 1)
@@ -139,6 +139,7 @@ public class Player_Move : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
         {
+            energy.CurrentVal -= 50;
             rigidBody.velocity = Vector2.zero;
 
 
@@ -161,6 +162,7 @@ public class Player_Move : MonoBehaviour
         //Attack 
         if (Input.GetKeyDown(KeyCode.C))
         {
+            energy.CurrentVal -= 25;
             StartCoroutine(Combo());
         }
 

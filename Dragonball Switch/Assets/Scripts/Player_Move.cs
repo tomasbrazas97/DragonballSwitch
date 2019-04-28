@@ -14,6 +14,8 @@ public class Player_Move : MonoBehaviour
     private bool attack;
     public GameObject attackTrigger;
     private bool combo;
+    private bool isDead;
+
     public Transform firePoint;
     public LineRenderer lineRender;
 
@@ -162,7 +164,15 @@ public class Player_Move : MonoBehaviour
             StartCoroutine(Combo());
         }
 
+        if (health.CurrentVal == 0)
+        {
+            FindObjectOfType<SoundsScript>().Play("GokuDeath");
+            isDead = true;
+            playerAnimation.SetBool("Dead", isDead);
+            gameLevelManager.Respawn(); // calling respawn method from LevelManager script
         }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)  {
         if(other.tag == "FallDetector")  {

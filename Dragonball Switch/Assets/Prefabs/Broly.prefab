@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 724360900296680872}
   - component: {fileID: 3918251053751074463}
   - component: {fileID: 3917630642046942153}
+  - component: {fileID: 6360861152921158501}
+  - component: {fileID: 3017755995018805025}
   - component: {fileID: 5284231077841868440}
   - component: {fileID: 2820725090190613881}
   - component: {fileID: 3148092200937992838}
@@ -102,7 +104,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5284231077841868440
+--- !u!114 &6360861152921158501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +112,48 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882911055416597621}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5e8cee95c21e648834f770ae20438f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  stoppingDistance: 0
+  retreatDistance: 0
+  startTimeBtwShots: 0
+  projectile: {fileID: 0}
+  health:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+--- !u!114 &3017755995018805025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882911055416597621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c145529499af54893ccd5677f72def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  stoppingDistance: 0
+  retreatDistance: 0
+  startTimeBtwShots: 0
+  projectile: {fileID: 0}
+  health:
+    bar: {fileID: 0}
+    maxVal: 500
+    currentVal: 500
+--- !u!114 &5284231077841868440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882911055416597621}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f5e8cee95c21e648834f770ae20438f, type: 3}
   m_Name: 

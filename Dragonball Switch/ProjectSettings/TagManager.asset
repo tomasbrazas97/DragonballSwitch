@@ -13,6 +13,7 @@ TagManager:
   - Melee
   - Portal
   - Food
+  - ProjectileBoss
   layers:
   - Default
   - TransparentFX

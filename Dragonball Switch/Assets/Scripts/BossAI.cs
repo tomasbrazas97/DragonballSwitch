@@ -9,6 +9,10 @@ public class BossAI : MonoBehaviour
     public float retreatDistance;
     private Animator enemyAnimation;
     private bool isDead;
+    private float direction;
+    public static bool enemyShoot = false;
+
+    private bool facingRight;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -33,25 +37,50 @@ public class BossAI : MonoBehaviour
 
         enemyAnimation = GetComponent<Animator>();
 
-        timeBtwShots = startTimeBtwShots;
+        enemyAnimation.SetTrigger("Walk");
         isDead = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        if (Vector3.Distance(player.position, transform.position) < 20)
+        {
+
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            if (player.position.x > transform.position.x && !facingRight) //if the target is to the right of enemy and the enemy is not facing right
+                Flip();
+            if (player.position.x < transform.position.x && facingRight)
+                Flip();
+        }
+
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            timeBtwShots = startTimeBtwShots;
+
         }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance &&
-            Vector2.Distance(transform.position, player.position) > retreatDistance)
+        else if (Vector2.Distance(transform.position, player.position) <= stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
             transform.position = this.transform.position;
+
+
         }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        else if (Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
+            transform.localScale = new Vector2(-1f, 1f);
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            timeBtwShots = 100;
+            enemyAnimation.SetTrigger("Attack");
+        }
+
+        if (enemyShoot == true)
+        {
+            //Stops animation Loop
+            enemyShoot = false;
+            enemyAnimation.SetTrigger("Shoot");
+
+
         }
 
         if (timeBtwShots <= 0)
@@ -67,7 +96,8 @@ public class BossAI : MonoBehaviour
 
         if (health.CurrentVal == 0)
         {
-            FindObjectOfType<SoundsScript>().Play("SaibaDeath");
+            timeBtwShots = 100;
+           // FindObjectOfType<SoundsScript>().Play("SaibaDeath");
             isDead = true;
             enemyAnimation.SetBool("Dead", isDead);
             Destroy(gameObject, 2f);
@@ -79,6 +109,38 @@ public class BossAI : MonoBehaviour
         if (other.tag == "ProjectileEnem")
         {
             health.CurrentVal -= 50;
+            enemyAnimation.SetTrigger("Hurt");
         }
+
+        if (other.tag == "Melee")
+        {
+            health.CurrentVal -= 20;
+            enemyAnimation.SetTrigger("Hurt");
+        }
+        if (other.tag == "Special")
+        {
+            health.CurrentVal -= 90;
+            enemyAnimation.SetTrigger("Hurt");
+        }
+
+    }
+
+    //Disables enemeies when off screen
+    private void OnBecameInvisible()
+    {
+        GetComponent<BossAI>().enabled = false;
+    }
+    //Re enables enemies once they are visible
+    private void OnBecameVisible()
+    {
+        GetComponent<BossAI>().enabled = true;
+    }
+
+    private void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+        facingRight = !facingRight;
     }
 }

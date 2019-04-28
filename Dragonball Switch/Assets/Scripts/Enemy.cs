@@ -45,7 +45,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        Flip(horizontal);
+        if (Vector3.Distance(player.position, transform.position) < 20)
+        {
+
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            if (player.position.x > transform.position.x && !facingRight) //if the target is to the right of enemy and the enemy is not facing right
+                Flip();
+            if (player.position.x < transform.position.x && facingRight)
+                Flip();
+        }
 
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
@@ -129,13 +137,11 @@ public class Enemy : MonoBehaviour
         GetComponent<Enemy>().enabled = true;
     }
 
-    private void Flip (float horizontal)
+    private void Flip()
     {
-        if(horizontal < 0 && !facingRight || horizontal > 0 && facingRight)
-        {
-            facingRight = !facingRight;
-            
-            transform.Rotate(0f, 180f, 0f);
-        }
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+        facingRight = !facingRight;
     }
 }

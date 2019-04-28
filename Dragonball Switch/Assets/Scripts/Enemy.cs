@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
+
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
@@ -88,7 +89,6 @@ public class Enemy : MonoBehaviour
 
         if (health.CurrentVal == 0)
         {
-       
             timeBtwShots = 100;
             FindObjectOfType<SoundsScript>().Play("SaibaDeath");
             isDead = true;
@@ -134,9 +134,8 @@ public class Enemy : MonoBehaviour
         if(horizontal < 0 && !facingRight || horizontal > 0 && facingRight)
         {
             facingRight = !facingRight;
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
+            
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }

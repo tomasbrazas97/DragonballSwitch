@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Move : MonoBehaviour
 {
@@ -200,6 +201,11 @@ public class Player_Move : MonoBehaviour
             {
                 FindObjectOfType<SoundsScript>().Play("VegHurt");
             }
+        }
+
+        if (other.tag == "Portal")
+        {
+            SceneManager.LoadScene("BossScene");
         }
     }
 

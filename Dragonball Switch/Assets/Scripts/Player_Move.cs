@@ -219,6 +219,12 @@ public class Player_Move : MonoBehaviour
         {
             SceneManager.LoadScene("BossScene");
         }
+
+        if (other.tag == "Food")
+        {
+            health.CurrentVal += 10;
+            energy.CurrentVal += 25;
+        }
     }
 
     //Shoot projectile Fireball

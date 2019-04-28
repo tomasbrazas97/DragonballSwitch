@@ -380,10 +380,10 @@ TextureImporter:
       name: keyboardLayout_13
       rect:
         serializedVersion: 2
-        x: 200
-        y: 157
-        width: 100
-        height: 100
+        x: 204
+        y: 57
+        width: 48
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,12 +440,12 @@ TextureImporter:
       name: keyboardLayout_16
       rect:
         serializedVersion: 2
-        x: 500
-        y: 157
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 252
+        y: 56
+        width: 48
+        height: 50
+      alignment: 9
+      pivot: {x: 0.4999994, y: 0.4900258}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

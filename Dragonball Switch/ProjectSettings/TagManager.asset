@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Melee
   - Portal
+  - Food
   layers:
   - Default
   - TransparentFX

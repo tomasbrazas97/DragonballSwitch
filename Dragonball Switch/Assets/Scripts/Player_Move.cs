@@ -15,6 +15,7 @@ public class Player_Move : MonoBehaviour
     public GameObject attackTrigger;
     private bool combo;
     private bool isDead;
+    private bool facingRight;
 
     public Transform firePoint;
     public LineRenderer lineRender;
@@ -69,18 +70,31 @@ public class Player_Move : MonoBehaviour
             {  //right
                 direction =1f;
                 rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-                transform.localScale = new Vector2(1f, 1f);
+           
+              
             }
             else if (movement < 0f)
             { //left
                 direction = -1f;
                 rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-                transform.localScale = new Vector2(-1f, 1f);
+              
+                
             }
             else
             { //dont move if none of keys are pressed
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
+            if (movement < 0f && !facingRight)
+            {
+                facingRight = true;
+                Flip();
+            }
+            else if (movement > 0f && facingRight)
+            {
+                facingRight = false;
+                Flip();
+            }
+           
 
             //Jump, can check all inputs in Edit->Project Settings->Input
             if (Input.GetButtonDown("Jump") && isTouchingGround == true)
@@ -250,7 +264,13 @@ public class Player_Move : MonoBehaviour
             tmp.GetComponent<ProjectileScript>().Initialize(Vector2.left);
         }//left facing
     }
-        
+
+
+    private void Flip()
+    {
+        transform.Rotate(0f, 180f, 0f);
+    }
+
     IEnumerator SpecialAtk()
     {
         yield return new WaitForSeconds(1);

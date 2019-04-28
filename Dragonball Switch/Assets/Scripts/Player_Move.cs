@@ -134,7 +134,22 @@ public class Player_Move : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            energy.CurrentVal = 100;
+            playerAnimation.SetTrigger("Charge");
+            if (SwitchScript.charDisplayed == 1)
+            {
+                FindObjectOfType<SoundsScript>().Play("Charge");
+                FindObjectOfType<SoundsScript>().Play("GokuCharge");
+            }
+            else
+            {
+                FindObjectOfType<SoundsScript>().Play("Charge");
+                FindObjectOfType<SoundsScript>().Play("VegCharge");
+            }
+        }
+            if (Input.GetKeyDown(KeyCode.X))
         {
             energy.CurrentVal -= 5;
             playerAnimation.SetTrigger("Shoot");

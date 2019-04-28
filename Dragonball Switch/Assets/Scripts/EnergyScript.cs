@@ -27,7 +27,7 @@ public class EnergyScript : MonoBehaviour
     public void Spend(int damageAmmount)
     {
         energy -= damageAmmount;
-        if (energy < 0) energy = 0;
+        if (energy <= 0) energy = 0;
         if (onEnergyhange != null) onEnergyhange(this, EventArgs.Empty);
     }
     public void Charge(int healAmmount)

@@ -247,6 +247,7 @@ public class Player_Move : MonoBehaviour
         if (other.tag == "ProjectileBoss")
         {
             health.CurrentVal -= 10;
+
             if (SwitchScript.charDisplayed == 1)
             {
                 FindObjectOfType<SoundsScript>().Play("GokuHurt");

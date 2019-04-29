@@ -37,12 +37,13 @@ public class BossAI : MonoBehaviour
 
         enemyAnimation = GetComponent<Animator>();
 
-        enemyAnimation.SetTrigger("Walk");
+        
         isDead = false;
     }
 
     void Update()
     {
+        enemyAnimation.SetTrigger("Walk");
         float horizontal = Input.GetAxis("Horizontal");
         if (Vector3.Distance(player.position, transform.position) < 20)
         {
@@ -78,7 +79,7 @@ public class BossAI : MonoBehaviour
         {
             //Stops animation Loop
             enemyShoot = false;
-            enemyAnimation.SetTrigger("Shoot");
+            enemyAnimation.SetTrigger("Special");
 
 
         }
